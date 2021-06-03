@@ -1,15 +1,22 @@
 .card-container {
     display: flex;
     flex-direction: column;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
     background-color: cadetblue;
     border: 1px solid grey;
     border-radius: 5px;
-    padding: 25px;
+    padding: 20px;
+    margin: 0 auto;
     cursor: pointer;
     backface-visibility: visible;
-    transition: transform 0.25s ease-out;
+    width: 85%;
 }
 
 .card-container:hover {
     transform: scale(1.05);
+}
+
+img {
+    margin: 0 auto;
 }

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { CardList } from './components/card-list/CardList'
+import { Layout } from './components/card-list/Layout'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      monkeys : [
-
-      ]
+      monkeys : []
     }
   }
 
@@ -21,12 +19,7 @@ class App extends Component {
   render () {
     return (
     <div className="App">
-    <CardList name='Chuck'>
-       {this.state.monkeys.map((monkey,index)  => (
-         <h1 key={index}>{monkey.name}</h1>
-         ))}
-    </CardList>
-    
+    <Layout monkeys={this.state.monkeys}/>
     </div>
   );
 }

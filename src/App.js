@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Layout } from "./components/card-list/Layout";
 import "./App.css";
+import { SearchBox } from "./components/search-box/SearchBox";
 
 class App extends Component {
   constructor() {
@@ -10,16 +11,16 @@ class App extends Component {
       searchField: "",
     };
   }
+  onChangeHandler = (e) => {
+    e.preventDefault();
+    this.setState({ searchField: e.target.value });
+  };
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => this.setState({ monkeys: users }));
   }
-  onChangeHandler = async (e) => {
-    e.preventDefault();
-    await this.setState({ searchField: e.target.value });
-  };
 
   render() {
     const { monkeys, searchField } = this.state;
@@ -29,15 +30,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <form>
-          <input
-            type="search"
-            placeholder="search for a monkey"
-            name="monkey-search"
-            id="monkey-search"
-            onChange={(e) => this.onChangeHandler(e)}
-          />
-        </form>
+        <h1>Monkeys Rolodex</h1>
+        <SearchBox
+          onChange={this.onChangeHandler}
+          placeHolder={"search for a monkey"}
+        />
         <Layout monkeys={foundMonkey} />
       </div>
     );

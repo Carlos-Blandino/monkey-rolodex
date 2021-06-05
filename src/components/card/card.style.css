@@ -3,8 +3,8 @@
     flex-direction: column;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
-    background-color: cadetblue;
-    border: 1px solid grey;
+    background-color: #135e9a;
+    border: 1px solid #d2ae29;
     border-radius: 5px;
     padding: 20px;
     margin: 0 auto;
